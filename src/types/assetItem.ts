@@ -1,6 +1,6 @@
-type NumericObject = {
-  [key: string]: number;
-};
+export interface TObject<T> {
+  [key: string]: T;
+}
 
 export interface TTicker {
   base: string;
@@ -21,16 +21,9 @@ interface TAssetItem {
   marketCapRank: number;
   description: string;
   tickers: TTicker[];
-  priceChangePercent: {
-    _24h: number;
-    _7d: number;
-    _14d: number;
-    _30d: number;
-    _60d: number;
-    _200d: number;
-    _1y: number;
-  };
-  currentPrice: NumericObject;
+  priceChangePercent: TObject<number>;
+  currentPrice: TObject<number>;
+  links: TObject<string[] | string>;
 }
 
 export default TAssetItem;

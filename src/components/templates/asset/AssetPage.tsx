@@ -1,8 +1,11 @@
+import ChangePercent from "@/components/modules/asset/change-percents/ChangePercent";
+import Description from "@/components/modules/asset/description/Description";
+import InfoTable from "@/components/modules/asset/info-table/InfoTable";
+import Links from "@/components/modules/asset/links/Links";
+import Price from "@/components/modules/asset/price/Price";
 import TAssetItem from "@/types/assetItem";
-import formatPrice from "@/utils/helper/numSeprator";
+
 import Image from "next/image";
-import triangleUp from "@/public/icons/triangle-up.svg";
-import triangleDown from "@/public/icons/triangle-down.svg";
 
 interface Props {
   asset: TAssetItem;
@@ -20,6 +23,7 @@ const AssetPage: React.FC<Props> = ({ asset }) => {
     tickers,
     priceChangePercent,
     currentPrice,
+    links,
   } = asset;
 
   return (
@@ -40,17 +44,14 @@ const AssetPage: React.FC<Props> = ({ asset }) => {
           <h1 className=" text-2xl">{name}</h1>
           <p className=" text-sm opacity-60">{symbol.toUpperCase()}</p>
         </div>
-        <div className="flex gap-1 text-4xl items-center">
-          <p>{formatPrice(currentPrice.usd)}</p>
-          <p>USD</p>
-          <Image
-            src={priceChangePercent._24h > 0 ? triangleUp : triangleDown}
-            alt="triangle"
-            width={30}
-            height={30}
-          />
-          <span className="text-sm">{priceChangePercent._24h.toFixed(2)}%</span>
-        </div>
+        <Price
+          currentPrice={currentPrice}
+          priceChangePercent={priceChangePercent}
+        />
+        <ChangePercent priceChangePercent={priceChangePercent} />
+        <InfoTable marketCap={marketCap} marketCapRank={marketCapRank} />
+        <Links links={links} />
+        {description ? <Description desc={description} /> : null}
       </div>
     </div>
   );

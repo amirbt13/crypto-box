@@ -18,8 +18,8 @@ const Asset: React.FC<Props> = async ({ params }) => {
     id: data.id,
     symbol: data.symbol,
     image: data.image,
-    marketCap: data.market_cap,
-    marketCapRank: data.market_cap_rank,
+    marketCap: data.market_data.market_cap.usd,
+    marketCapRank: data.market_data.market_cap_rank,
     description: data.description.en,
     tickers: data.tickers,
     priceChangePercent: {
@@ -32,6 +32,7 @@ const Asset: React.FC<Props> = async ({ params }) => {
       _1y: data.market_data.price_change_percentage_1y,
     },
     currentPrice: data.market_data.current_price,
+    links: data.links,
   };
 
   return <AssetPage asset={assetItem} />;
