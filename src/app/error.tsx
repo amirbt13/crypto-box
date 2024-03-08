@@ -16,24 +16,26 @@ export default function Error({
     console.error(error);
   }, [error]);
   return (
-    <div className="flex flex-col items-center gap-2">
+    <div className="flex flex-col items-center gap-2 lg:flex-row lg:justify-around">
       <div className="p-2">
         <Image src={error500} alt="error" />
       </div>
-      <h1 className=" text-4xl">Something went wrong</h1>
-      <div className="flex gap-2 items-center">
-        <Link
-          className=" bg-slate-900 text-white rounded-md py-1 px-2"
-          href={"/"}
-        >
-          Return Home
-        </Link>
-        <button
-          className="border-2 border-slate-900 rounded-md py-1 px-2"
-          onClick={() => reset()}
-        >
-          Try Again
-        </button>
+      <div className="flex flex-col gap-4 items-center lg:gap-8">
+        <h1 className=" text-4xl lg:text-[3.5rem]">Something went wrong</h1>
+        <div className="flex gap-2 items-center">
+          <Link
+            className=" bg-slate-900 text-white rounded-md py-1 px-2 lg:text-2xl"
+            href={"/"}
+          >
+            Return Home
+          </Link>
+          <button
+            className="border-2 border-slate-900 rounded-md py-1 px-2 lg:text-2xl"
+            onClick={() => reset()}
+          >
+            Try Again
+          </button>
+        </div>
       </div>
     </div>
   );
