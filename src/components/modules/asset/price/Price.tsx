@@ -11,7 +11,7 @@ interface Props {
 
 const Price: React.FC<Props> = ({ priceChangePercent, currentPrice }) => {
   return (
-    <div className="flex gap-1 text-4xl items-center">
+    <div className="flex gap-1 text-4xl lg:text-[3rem] items-center ">
       <p>{formatPrice(currentPrice.usd)}</p>
       <p>USD</p>
       <Image

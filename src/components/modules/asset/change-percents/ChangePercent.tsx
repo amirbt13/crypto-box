@@ -8,7 +8,7 @@ const ChangePercent: React.FC<Props> = ({ priceChangePercent }) => {
   const changePercentsArr = Object.entries(priceChangePercent);
   //   console.log(changePercentsArr);
   return (
-    <div className=" flex flex-col gap-1">
+    <div className=" flex flex-col gap-1 lg:w-1/2">
       <h2>Changes in percent</h2>
       <div className=" border border-slate-800 rounded-lg overflow-hidden">
         <div className=" grid grid-cols-7 justify-items-center  text-white">

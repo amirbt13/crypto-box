@@ -28,7 +28,7 @@ const AssetPage: React.FC<Props> = ({ asset }) => {
 
   return (
     <div>
-      <div className="flex flex-col gap-4 m-4 p-2 ">
+      <div className="flex flex-col gap-4 lg:gap-6 m-4 p-2 lg:w-[70%] lg:mx-auto">
         <div>
           <Image
             src={image.large}
@@ -41,15 +41,17 @@ const AssetPage: React.FC<Props> = ({ asset }) => {
         </div>
         <div className="flex gap-1 items-center">
           <Image src={image.thumb} alt={name} width={20} height={20} />
-          <h1 className=" text-2xl">{name}</h1>
+          <h1 className=" text-2xl lg:text-4xl">{name}</h1>
           <p className=" text-sm opacity-60">{symbol.toUpperCase()}</p>
         </div>
         <Price
           currentPrice={currentPrice}
           priceChangePercent={priceChangePercent}
         />
-        <ChangePercent priceChangePercent={priceChangePercent} />
-        <InfoTable marketCap={marketCap} marketCapRank={marketCapRank} />
+        <div className="flex flex-col lg:flex-row gap-3 items-start">
+          <ChangePercent priceChangePercent={priceChangePercent} />
+          <InfoTable marketCap={marketCap} marketCapRank={marketCapRank} />
+        </div>
         <Links links={links} />
         {description ? <Description desc={description} /> : null}
       </div>
