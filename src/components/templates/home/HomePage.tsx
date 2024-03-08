@@ -8,7 +8,7 @@ const HomePage = () => {
         <h1>Crypto Box</h1>
       </div>
       <div className="flex flex-col items-center gap-2 lg:gap-8">
-        <h2 className=" text-lg lg:text-3xl">Search Asset Name</h2>
+        <h2 className=" text-lg lg:text-3xl">Search Coin Name</h2>
         <Search />
       </div>
     </div>

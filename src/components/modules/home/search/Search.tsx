@@ -28,7 +28,7 @@ const Search = () => {
 
       return;
     }
-    router.push(`/assets/${searchStr}`);
+    router.push(`/coin/${searchStr}`);
   };
 
   return (
